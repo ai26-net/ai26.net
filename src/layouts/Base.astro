@@ -1,0 +1,26 @@
+---
+import Seo from '@src/components/Seo';
+import HtmlLayout from '@src/layouts/Html.astro';
+import BodyLayout from '@src/layouts/Body.astro';
+import HeadLayout from '@src/layouts/Head.astro';
+
+import clsx from 'clsx';
+---
+
+<HtmlLayout>
+  <HeadLayout>
+    <Seo
+      title={'AI26'}
+      tags={'AI26, ai26, ai26.net, ai automations, business automation, crypto process automations'}
+      authorName={'Shivek Khurana'}
+    />
+  </HeadLayout>
+
+  <BodyLayout>
+    <div class={clsx('w-9/12 mx-auto lg:w-5/12 xl:w-3/12', 'font-serif')}>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </BodyLayout>
+</HtmlLayout>
