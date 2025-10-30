@@ -1,23 +1,26 @@
 ---
-import Seo from '@src/components/Seo';
-import HtmlLayout from '@src/layouts/Html.astro';
-import BodyLayout from '@src/layouts/Body.astro';
-import HeadLayout from '@src/layouts/Head.astro';
+import Seo from "@src/components/Seo";
+import HtmlLayout from "@src/layouts/Html.astro";
+import BodyLayout from "@src/layouts/Body.astro";
+import HeadLayout from "@src/layouts/Head.astro";
 
-import clsx from 'clsx';
+import clsx from "clsx";
 ---
 
 <HtmlLayout>
   <HeadLayout>
     <Seo
-      title={'AI26'}
-      tags={'AI26, ai26, ai26.net, ai automations, business automation, crypto process automations'}
-      authorName={'Shivek Khurana'}
+      title={"AI26"}
+      subTitle={"Unlimited AI automations for crypto first businesses"}
+      tags={"AI26, ai26, ai26.net, ai automations, business automation, crypto process automations"}
+      authorName={"Shivek Khurana"}
     />
   </HeadLayout>
 
   <BodyLayout>
-    <div class={clsx('w-9/12 mx-auto lg:w-5/12 xl:w-3/12', 'font-serif')}>
+    <div
+      class={clsx("w-10/12 mx-auto lg:w-5/12 xl:w-3/12 pb-12", "font-serif")}
+    >
       <main>
         <slot />
       </main>
