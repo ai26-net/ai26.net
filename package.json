@@ -24,6 +24,7 @@
   "scripts": {
     "dev:astro": "astro dev",
     "build:astro": "astro build",
+    "build:contentlayer": "echo 'Contentlayer build not implemented'",
     "preview:astro": "astro preview",
     "astro": "astro",
     "dev": "run-p dev:*",
