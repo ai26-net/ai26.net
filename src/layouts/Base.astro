@@ -18,12 +18,8 @@ import clsx from "clsx";
   </HeadLayout>
 
   <BodyLayout>
-    <div
-      class={clsx("w-10/12 mx-auto lg:w-5/12 xl:w-3/12 pb-12", "font-serif")}
-    >
-      <main>
-        <slot />
-      </main>
-    </div>
+    <main class="w-full">
+      <slot />
+    </main>
   </BodyLayout>
 </HtmlLayout>
