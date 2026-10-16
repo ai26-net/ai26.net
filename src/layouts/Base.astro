@@ -12,13 +12,13 @@ interface Props {
 }
 const {
   noindex = false,
-  title = "AI26 — Turn your company’s historical data into revenue",
-  description = "AI26 connects established businesses with AI research labs interested in licensing historical business data. For companies with 50+ employees and 5+ years of operations.",
+  title = "AI26: Turn your company’s historical data into revenue",
+  description = "Turn your company’s historical data into revenue. AI26 connects established businesses with AI research labs.",
 } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
 const siteUrl = new URL("/", Astro.site).href;
 const imageUrl = new URL("/social/og-image.png", Astro.site).href;
-const imageAlt = "AI26 — Turn your company’s historical data into revenue. Silver and green AI26 logo surrounded by a coffee mug, pencil, spreadsheet tablet, and business chat phone.";
+const imageAlt = "AI26: Turn your company’s historical data into revenue. Sell your data at ai26.net.";
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [

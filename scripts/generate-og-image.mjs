@@ -33,7 +33,7 @@ ${rows.map((row, i) => `<path d="M19 ${112+i*23}H381" stroke="#e2e5e2"/>${row.ma
 <circle cx="200" cy="6" r="2" fill="#343a3f"/>
 </g>`;
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-<title id="title">AI26 — Turn your company’s historical data into revenue.</title>
+<title id="title">AI26: Turn your company’s historical data into revenue.</title>
 <desc id="desc">A centered Open Runde headline with the silver and green AI26 logo, surrounded by the landing page’s coffee mug, pencil, spreadsheet tablet, and business chat phone.</desc>
 <defs>
 <linearGradient id="metal" x2="1" y2="1"><stop stop-color="#c8ccce"/><stop offset=".2" stop-color="#fcfcfc"/><stop offset=".65" stop-color="#838b90"/><stop offset="1" stop-color="#d9dddf"/></linearGradient>
@@ -54,6 +54,9 @@ ${tablet}
 ${text('Turn your company’s', 600, 269, 62, 700, '#2a2a2a', true)}
 ${text('historical data', 600, 345, 62, 700, '#2a2a2a', true)}
 ${text('into revenue.', 600, 421, 62, 700, '#2a2a2a', true)}
+<rect x="466" y="474" width="268" height="64" rx="32" fill="#202226"/>
+${text('Sell your data', 600, 515, 25, 700, '#ffffff', true)}
+${text('ai26.net', 600, 577, 20, 400, '#666666', true)}
 </svg>`;
 await writeFile('public/social/og-image.svg', svg);
 await sharp(Buffer.from(svg)).png().toFile('public/social/og-image.png');

@@ -1,6 +1,6 @@
 # Desk imagery
 
-Source: https://www.acctual.com/ — reference assets reused at the site owner's request.
+Source: https://www.acctual.com/: reference assets reused at the site owner's request.
 
 - macbook.png: https://framerusercontent.com/images/57aau0qXXJZVzKDCkclMnY0ykdc.png
 - keyboard.png: https://framerusercontent.com/images/rHF7ngOvRWlxUCFw3CaFKk47z8.png

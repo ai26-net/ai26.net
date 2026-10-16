@@ -1,4 +1,4 @@
-# AI26 seller order — completion checklist
+# AI26 seller order: completion checklist
 
 Use with draft v0.1 dated 16 October 2026. This checklist is not an executed order.
 

@@ -72,8 +72,8 @@ This is a topic-by-topic drafting crosswalk, not a representation of identical l
 
 ## Additional review sources
 
-- GDPR official consolidated text: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng/ — transparency, roles and international-transfer prerequisites must be evaluated for the actual data and recipients.
-- California Privacy Protection Agency regulatory explanation: https://cppa.ca.gov/regulations/pdf/20230329_final_sor.pdf — third-party contract and compliance framework. Confirm operative statutory and regulatory text with counsel; the legislature page returned an access error during this session.
+- GDPR official consolidated text: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng/: transparency, roles and international-transfer prerequisites must be evaluated for the actual data and recipients.
+- California Privacy Protection Agency regulatory explanation: https://cppa.ca.gov/regulations/pdf/20230329_final_sor.pdf: third-party contract and compliance framework. Confirm operative statutory and regulatory text with counsel; the legislature page returned an access error during this session.
 
 ## Before external use
 

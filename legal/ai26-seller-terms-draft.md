@@ -1,6 +1,6 @@
 # AI26 Data Licensing Terms
 
-Draft v0.1 — 16 October 2026. For legal review before execution.
+Draft v0.1: 16 October 2026. For legal review before execution.
 
 Stoa Labs FZ-LLC, Ras Al Khaimah, United Arab Emirates.
 
