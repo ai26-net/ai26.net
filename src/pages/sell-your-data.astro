@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import IntakeForm from "../components/IntakeForm.astro";
+
+const metadata = new URLSearchParams({
+  manifestSchemaVersion: "1",
+});
+const formUrl = `https://tally.so/r/Qo2J7G?${metadata}`;
+const embedUrl = `https://tally.so/embed/Qo2J7G?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&${metadata}`;
+---
+
+<Base title="Sell your data — AI26" description="Explore AI26’s business data licensing eligibility: 50+ employees, 5+ years of operations, and rights to license your historical data. Applications coming soon.">
+  <Header />
+  <main id="main" class="eligibility-page wrap">
+    <h1>Sell your data.</h1>
+    <IntakeForm {embedUrl} {formUrl} />
+  </main>
+  <Footer />
+</Base>

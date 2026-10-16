@@ -1,0 +1,69 @@
+---
+import {
+  Users,
+  CalendarDays,
+  Banknote,
+  ArrowUpRight,
+  ArrowDown,
+  ArrowLeft,
+  Check,
+  CheckCheck,
+  Menu,
+  Plus,
+  Files,
+  TrendingUp,
+  Sparkles,
+  MessagesSquare,
+  FileText,
+  Table2,
+  ListTodo,
+  CodeXml,
+  ShieldCheck,
+  Search,
+  Star,
+  ChevronLeft,
+  ChevronDown,
+  Ellipsis,
+  Circle,
+  Signal,
+  BatteryFull,
+} from "@lucide/astro";
+const icons = {
+  people: Users,
+  calendar: CalendarDays,
+  banknote: Banknote,
+  arrow: ArrowUpRight,
+  down: ArrowDown,
+  back: ArrowLeft,
+  check: Check,
+  checks: CheckCheck,
+  menu: Menu,
+  plus: Plus,
+  files: Files,
+  growth: TrendingUp,
+  sparkles: Sparkles,
+  messages: MessagesSquare,
+  document: FileText,
+  table: Table2,
+  tasks: ListTodo,
+  code: CodeXml,
+  shield: ShieldCheck,
+  search: Search,
+  star: Star,
+  left: ChevronLeft,
+  chevron: ChevronDown,
+  more: Ellipsis,
+  circle: Circle,
+  signal: Signal,
+  battery: BatteryFull,
+};
+interface Props {
+  name: keyof typeof icons;
+  size?: number;
+  class?: string;
+}
+const { name, size = 20, class: className } = Astro.props;
+const Glyph = icons[name];
+---
+
+<Glyph size={size} stroke-width={1.7} class={className} aria-hidden="true" />

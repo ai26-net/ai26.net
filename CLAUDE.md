@@ -1,43 +1,29 @@
-# CLAUDE.md
+# AI26 website
 
-## Project Overview
+Static marketing site for licensing historical business data to AI research labs.
 
-ai26.net is a marketing/portfolio website built with Astro, React, Tailwind CSS, and Bun.
+## Stack
 
-## Tech Stack
+- Astro 7 with its bundled Vite 8
+- Tailwind CSS 4 via @tailwindcss/vite
+- Self-hosted Open Runde (400–700) and Caveat (600) fonts
+- Lucide SVG icons via @lucide/astro and components/Icon.astro
+- Bun package manager; Node >=22.22 required by Astro
 
-- **Framework**: Astro 5.x
-- **UI**: React 18 + Tailwind CSS 3
-- **Runtime**: Bun
-- **TypeScript**: Yes
+## Commands
 
-## Key Commands
+- `bun install --frozen-lockfile`
+- `bun run dev`
+- `bun run check`
+- `bun run build`
+- `bun run preview`
 
-```bash
-# Start dev server
-bun run dev
+## Structure
 
-# Build for production
-bun run build
+- `src/pages/index.astro`: landing page and content
+- `src/pages/sell-your-data.astro`: embedded Tally seller intake form
+- `src/components/`: shared navigation, footer, mark, and illustrative hero UI
+- `src/layouts/Base.astro`: HTML and metadata
+- `src/styles/global.css`: Tailwind import and responsive design
 
-# Preview production build
-bun run preview
-```
-
-## Project Structure
-
-```
-src/
-├── components/    # React components
-├── layouts/       # Astro layouts
-├── pages/         # Astro pages
-├── config.ts      # Site configuration
-└── utils/         # Utility functions
-```
-
-## Important Notes
-
-- Uses `bun.lockb` for dependency management
-- Tailwind is configured via `tailwind.config.mjs`
-- Astro config is in `astro.config.mjs`
-- Prettier is configured for formatting
+All hero mockups contain fictional content. Sell your data links lead to the Tally intake form on `/sell-your-data`. Tally manages submissions; see `docs/intake-form.md` for manifest mapping.

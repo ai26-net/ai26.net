@@ -1,0 +1,17 @@
+---
+interface Props {
+  name: "gmail" | "slack" | "jira" | "whatsapp" | "excel" | "teams" | "google-drive" | "microsoft" | "sharepoint" | "hubspot" | "discord";
+  size?: number;
+}
+const { name, size = 24 } = Astro.props;
+---
+
+<img
+  src={`/brands/${name}.svg`}
+  width={size}
+  height={size}
+  alt=""
+  aria-hidden="true"
+  class="brand-icon"
+  loading="eager"
+/>

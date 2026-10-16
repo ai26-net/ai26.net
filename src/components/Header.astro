@@ -1,0 +1,55 @@
+---
+import Icon from "./Icon.astro";
+import Mark from "./Mark.astro";
+---
+
+<header class="site-header wrap">
+  <a href="/" class="brand" aria-label="AI26 home">
+    <Mark />
+    ai26
+  </a>
+  <nav class="desktop-nav" aria-label="Main navigation">
+    <a href="/#data">Data we’re looking for</a>
+    <a href="/#company-eligibility">Company eligibility</a>
+    <a href="/#how-it-works">How it works</a>
+    <a href="/#faq">FAQ</a>
+  </nav>
+  <a href="/sell-your-data" class="button button-small">
+    Sell your data
+  </a>
+  <details class="mobile-menu">
+    <summary aria-label="Open navigation">
+      <Icon name="menu" />
+    </summary>
+    <nav aria-label="Mobile navigation">
+      <a href="/#data">Data we’re looking for</a>
+      <a href="/#company-eligibility">Company eligibility</a>
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+  </details>
+</header>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
+  const toggle = menu?.querySelector("summary");
+
+  if (menu) {
+    document.addEventListener("click", (event) => {
+      if (!(event.target instanceof Node) || !menu.open) return;
+      const clickedLink = event.target instanceof Element && event.target.closest("a");
+      if (!menu.contains(event.target) || clickedLink) menu.open = false;
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) {
+        menu.open = false;
+        toggle?.focus();
+      }
+    });
+
+    menu.addEventListener("toggle", () => {
+      toggle?.setAttribute("aria-label", menu.open ? "Close navigation" : "Open navigation");
+    });
+  }
+</script>

@@ -1,0 +1,30 @@
+---
+interface Props {
+  embedUrl: string;
+  formUrl: string;
+}
+const { embedUrl, formUrl } = Astro.props;
+---
+
+<section class="intake-form" aria-label="Company intake form">
+  <iframe
+    data-tally-src={embedUrl}
+    src={embedUrl}
+    width="100%"
+    height="1500"
+    title="Sell your data — company details"
+    loading="eager"
+  ></iframe>
+  <p class="form-fallback">
+    Having trouble with the form? <a href={formUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
+  </p>
+</section>
+
+<script is:inline async src="https://tally.so/widgets/embed.js"></script>
+
+<style>
+  .intake-form { margin-top: 36px; }
+  iframe { display: block; width: 100%; border: 0; border-radius: 12px; background: white; }
+  .form-fallback { margin-top: 24px; font-size: 15px; line-height: 1.6; color: #707070; }
+  .form-fallback a { color: #202020; text-decoration: underline; text-underline-offset: 3px; }
+</style>

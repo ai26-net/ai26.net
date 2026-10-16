@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import sections from "../data/seller-terms.json";
+---
+
+<Base title="Data Licensing Terms — AI26" description="AI26 data licensing terms for business data providers." noindex>
+  <Header />
+  <main id="main" class="legal-page wrap">
+    <header class="legal-heading">
+      <h1>Data Licensing Terms</h1>
+      <p>Stoa Labs FZ-LLC · Ras Al Khaimah, United Arab Emirates</p>
+    </header>
+    <div class="legal-layout">
+      <nav class="legal-contents" aria-label="Terms contents">
+        <p>Contents</p>
+        {sections.map((section) => <a href={`#${section.id}`}>{section.title}</a>)}
+      </nav>
+      <div class="legal-body">
+        {sections.map((section) => (
+          <section id={section.id}>
+            <h2>{section.title}</h2>
+            {section.clauses.map((clause) => (
+              <div class="legal-clause">
+                <h3>{clause.title}</h3>
+                <p>{clause.text}</p>
+              </div>
+            ))}
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>

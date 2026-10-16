@@ -1,1 +1,4 @@
 User-agent: *
+Allow: /
+
+Sitemap: https://ai26.net/sitemap.xml

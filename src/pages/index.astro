@@ -1,39 +1,364 @@
 ---
-import IndexBase from "@src/layouts/Base.astro";
-import config from "@src/config";
-import { User, Zap, Info, MoveUpRight, Eclipse, MessageCircle } from "lucide-react";
-
-const iconMap: Record<string, any> = {
-  User,
-  Zap,
-  Info,
-  MessageCircle,
-};
-
-const { icons } = config.home;
+import BrandIcon from "../components/BrandIcon.astro";
+import Icon from "../components/Icon.astro";
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroScene from "../components/HeroScene.astro";
+const dataTypes = [
+  {
+    title: "Conversations that move work forward.",
+    text: "Company email, Slack, Teams, and business WhatsApp conversations, alongside the files that give them context.",
+    icon: "messages" as const,
+    tone: "sage",
+  },
+  {
+    title: "Documents your teams work from.",
+    text: "Reports, presentations, SOPs, proposals, and internal knowledge bases. The knowledge behind your everyday decisions.",
+    icon: "document" as const,
+    tone: "lavender",
+  },
+  {
+    title: "Spreadsheets behind the decisions.",
+    text: "Planning models, forecasts, operating reports, and analysis that show how your business thinks.",
+    icon: "table" as const,
+    tone: "peach",
+  },
+  {
+    title: "Records of work getting done.",
+    text: "Project histories, CRM records, support tickets, and the operational details connecting a request to its outcome.",
+    icon: "tasks" as const,
+    tone: "blue",
+  },
+  {
+    title: "Technical knowledge built over time.",
+    text: "Code repositories, technical documentation, and engineering artifacts that capture how things were built.",
+    icon: "code" as const,
+    tone: "cream",
+  },
+  {
+    title: "Other documents that help you run operations.",
+    text: "Meeting notes, handover documents, checklists, and other internal records that support your day-to-day operations.",
+    icon: "files" as const,
+    tone: "sage",
+  },
+];
+const steps = [
+  [
+    "Tell us about your business.",
+    "Share your company size, operating history, and the systems your teams use.",
+  ],
+  [
+    "Assess the fit.",
+    "Review the available data, its historical depth, and its relevance to buyer requirements.",
+  ],
+  [
+    "Define an eligible package.",
+    "Establish what can be included, what needs to be excluded, and the proposed licensing scope.",
+  ],
+  [
+    "Agree terms and proceed.",
+    "If a buyer approves the package, proceed under an agreed licensing and delivery process.",
+  ],
+];
+const stepIcons = ["messages", "search", "files", "check"] as const;
+const faqs = [
+  [
+    "What does AI26 do?",
+    "AI26 connects established businesses with AI research labs interested in licensing real-world operating data. We help businesses explore whether an approved package of historical records could be a fit for a licensing opportunity.",
+  ],
+  [
+    "What makes our company’s data valuable?",
+    "Historical depth, quality, volume, and connected context all matter. Records that show how work progresses across conversations, documents, decisions, and outcomes can be especially useful. Value also depends on buyer requirements and your rights to license the material.",
+  ],
+  [
+    "Does my business qualify?",
+    "We prioritize active businesses with at least 50 employees and five years of operations. Strong candidates have meaningful historical records, repeatable workflows, and the authority to license the data included. Meeting these criteria does not guarantee buyer approval.",
+  ],
+  [
+    "Can email, Slack, Teams, and WhatsApp be included?",
+    "Business communications may be eligible when the required rights and permissions are in place. Personal conversations and employee-owned accounts are not automatically eligible. The scope must be reviewed alongside related files and any restrictions.",
+  ],
+  [
+    "What about confidential or client-owned information?",
+    "Before data is shared with a third-party AI lab, we remove personally identifiable information and replace names and commercially sensitive figures with non-identifying alternatives. We do not ask you to share bank statements, account details, or other sensitive financial information. Data is handled under confidentiality and security safeguards, and only the redacted package is shared with the lab. Client-owned or otherwise restricted material still requires the appropriate permissions; anything that cannot be licensed is excluded.",
+  ],
+  [
+    "Who licenses the data, and how will it be used?",
+    "The intended buyers are AI research labs seeking enterprise data for training or evaluation. The buyer, permitted uses, and other conditions should be specified in the licensing agreement before you proceed.",
+  ],
+  [
+    "How much could we earn?",
+    "There is no fixed payout. Potential value depends on the quality and scope of an eligible package, buyer demand, and agreed terms. Any payment is subject to buyer approval and a completed licensing agreement.",
+  ],
+  [
+    "Is this a one-time payment?",
+    "The opportunity described here is a one-time license of an approved historical data package. Payment terms, delivery requirements, and the scope of the license are agreed for each transaction.",
+  ],
+  [
+    "What is required from our team?",
+    "An internal owner should be able to coordinate the initial assessment, identify relevant systems and records, and help review rights and exclusions. The effort required depends on your data and the proposed package.",
+  ],
+];
 ---
 
-<IndexBase>
-  <nav class="w-full flex items-center justify-start py-4 border-b border-gray-200 px-4">
-    <div class="flex items-center gap-2 font-bold text-base">
-      <Eclipse size={24} class="text-gray-800" />
-      <span>AI26</span>
-    </div>
-  </nav>
-
-  <div class="w-full mx-auto py-8 px-4 md:px-8 lg:w-8/12 xl:w-8/12">
-    <div class="flex gap-4">
-      {icons.map((item: { label: string; href: string; icon: string; color: string }) => {
-        const IconComponent = iconMap[item.icon];
-        return (
-          <a href={item.href} target={item.href.startsWith("http") ? "_blank" : "_self"} class="flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer w-28">
-            <div class={`w-20 h-20 rounded-lg flex items-center justify-center ${item.color}`}>
-              {IconComponent && <IconComponent size={36} />}
-            </div>
-            <span class="text-xs font-medium">{item.label}</span>
+<Base>
+  <Header />
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy wrap">
+        <h1 id="hero-title">
+          Turn your company’s
+          <br class="desktop-break" /> historical data <span>into revenue.</span>
+        </h1>
+        <p class="hero-description">
+          Your business has spent years creating documents, spreadsheets,
+          emails, and operating records. AI26 connects you with AI research labs
+          interested in licensing that data.
+        </p>
+        <div class="hero-actions">
+          <a href="/sell-your-data" class="button">
+            Sell your data
           </a>
-        );
-      })}
-    </div>
-  </div>
-</IndexBase>
+          <a href="#how-it-works" class="text-link">
+            See how it works <Icon name="down" size={16} />
+          </a>
+        </div>
+        <div class="hero-criteria">
+          <span>
+            <Icon name="people" size={18} /> 50+ employees
+          </span>
+          <span>
+            <Icon name="calendar" size={18} /> 5+ years of operations
+          </span>
+          <span>
+            <Icon name="banknote" size={18} /> $100k - $500k in payouts
+          </span>
+        </div>
+      </div>
+      <HeroScene />
+    </section>
+      <div class="source-strip">
+        <h2>Data from the tools you use</h2>
+        <div>
+          <span>
+            <BrandIcon name="slack" /> slack
+          </span>
+          <span>
+            <BrandIcon name="gmail" /> Gmail
+          </span>
+          <span>
+            <BrandIcon name="jira" /> Jira
+          </span>
+          <span>
+            <BrandIcon name="whatsapp" /> WhatsApp
+          </span>
+          <span>
+            <BrandIcon name="excel" /> Excel
+          </span>
+          <span>
+            <BrandIcon name="teams" /> Teams
+          </span>
+          <span><BrandIcon name="google-drive" /> Google Drive</span>
+          <span><BrandIcon name="microsoft" /> Microsoft 365</span>
+        </div>
+      </div>
+    <section class="context-section">
+      <div class="wrap context-grid">
+        <div>
+          <h2>
+            AI needs to understand
+            <br />
+            how work
+            <br />
+            <span>actually happens.</span>
+          </h2>
+          <p>
+            The conversations,
+            revisions, decisions, and outcomes provide the context
+            that makes business data useful.
+          </p>
+          <a href="#data" class="text-link">
+            Explore the data we’re looking for <Icon name="down" />
+          </a>
+        </div>
+        <div class="workflow-visual">
+          <div class="workflow-card">
+            <span class="workflow-app mail">
+              <BrandIcon name="gmail" size={22} />
+            </span>
+            <div>
+              <small>01 / THE REQUEST</small>
+              <b>A customer asks a question.</b>
+            </div>
+            <span>
+              <Icon name="arrow" size={16} />
+            </span>
+          </div>
+          <div class="workflow-connector"></div>
+          <div class="workflow-card">
+            <span class="workflow-app discuss">
+              <BrandIcon name="slack" size={22} />
+            </span>
+            <div>
+              <small>02 / THE CONVERSATION</small>
+              <b>The team works through it.</b>
+            </div>
+            <span>
+              <Icon name="arrow" size={16} />
+            </span>
+          </div>
+          <div class="workflow-connector"></div>
+          <div class="workflow-card">
+            <span class="workflow-app task">
+              <BrandIcon name="jira" size={22} />
+            </span>
+            <div>
+              <small>03 / THE WORK</small>
+              <b>A plan becomes a project.</b>
+            </div>
+            <span>
+              <Icon name="arrow" size={16} />
+            </span>
+          </div>
+          <div class="workflow-connector"></div>
+          <div class="workflow-card final">
+            <span class="workflow-app result">
+              <Icon name="check" />
+            </span>
+            <div>
+              <small>04 / THE OUTCOME</small>
+              <b>A decision. A result. A lesson.</b>
+            </div>
+            <span>
+              <Icon name="arrow" size={16} />
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section wrap" id="data">
+      <div class="center-heading">
+        <h2>
+          The business data
+          <br />
+          we’re looking for.
+        </h2>
+        <p>
+          A collection of records that, together, represent how your company
+          operates.
+        </p>
+      </div>
+      <div class="data-grid">
+        {dataTypes.map((item) => (
+          <article class={`data-card ${item.tone}`}>
+            <div class="data-card-top">
+              <span class="data-icon">
+                <Icon name={item.icon} size={30} />
+              </span>
+              <h3>{item.title}</h3>
+            </div>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section class="fit-section wrap" id="company-eligibility">
+      <div>
+        <h2>Company eligibility criteria</h2>
+        <p>
+          We prioritize established SMB and mid-market companies with
+          substantial operating history and accessible records.
+        </p>
+        <p class="country-list">
+          We work with companies based in
+          <span><span aria-hidden="true">🇮🇳</span> India,</span>
+          <span><span aria-hidden="true">🇸🇬</span> Singapore,</span>
+          <span><span aria-hidden="true">🇦🇪</span> UAE,</span>
+          and <span><span aria-hidden="true">🇩🇪</span> Germany.</span>
+        </p>
+        <a href="/sell-your-data" class="text-link">
+          Sell your data <Icon name="arrow" />
+        </a>
+      </div>
+      <div class="fit-grid">
+        <div>
+          <strong>
+            50<span>+</span>
+          </strong>
+          <h3>Employees</h3>
+          <p>Established teams doing meaningful work.</p>
+        </div>
+        <div>
+          <strong>
+            5<span>+</span>
+          </strong>
+          <h3>Years of operations</h3>
+          <p>Real history, with records to match.</p>
+        </div>
+        <div>
+          <Icon name="files" size={30} class="fit-icon" />
+          <h3>Historical depth</h3>
+          <p>Connected records across teams and workflows.</p>
+        </div>
+        <div>
+          <Icon name="shield" size={30} class="fit-icon" />
+          <h3>Rights to license</h3>
+          <p>Authority to license the data included.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section wrap" id="how-it-works">
+      <div class="center-heading">
+        <h2>How it works</h2>
+      </div>
+      <div class="steps-grid">
+        {steps.map(([title, text], index) => (
+          <article>
+            <div class="step-label">
+              <span class="step-number">0{index + 1}</span>
+              <h3>{title}</h3>
+            </div>
+            <p>{text}</p>
+            <div class="step-illustration" aria-hidden="true">
+              <Icon name={stepIcons[index]} size={48} />
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="fine-print">
+        Participation and payment depend on data eligibility, buyer approval,
+        and an agreed license.
+      </p>
+    </section>
+    <section class="section wrap faq-section" id="faq">
+      <div>
+        <h2>FAQ</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map(([question, answer]) => (
+          <details name="faq">
+            <summary>
+              {question}
+              <span aria-hidden="true">
+                <Icon name="plus" />
+              </span>
+            </summary>
+            <p>{answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+    <section class="closing wrap">
+      <h2>
+        You’ve built a business.
+        <br />
+        <span>Explore the value of its knowledge.</span>
+      </h2>
+      <a href="/sell-your-data" class="button">
+        Sell your data
+      </a>
+    </section>
+  </main>
+  <Footer />
+</Base>
