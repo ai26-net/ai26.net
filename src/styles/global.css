@@ -2433,7 +2433,7 @@ h3 {
   --step-tint: #e0f3ec;
 }
 #how-it-works .step-label { min-height: 108px; }
-#how-it-works h3,
+#how-it-works h3 { color: #666; }
 #how-it-works .step-number { color: var(--step-accent); }
 #how-it-works .steps-grid p { margin-bottom: 28px; }
 .step-illustration {
